@@ -22,16 +22,10 @@ class Bar {
 };
 
 int main(int argc, char *argv[]) {
-    piper::Memory *memory = new piper::Memory(1024 * 1024);
+    auto memory = new piper::Memory<Foo>(1024 * 1024);
 
-    Foo *foo = piper::allocate<Foo>(memory);
+    Foo *foo = memory->get_new();
     assert(foo->a == 1);
-
-    Bar *bar = piper::allocate<Bar>(memory);
-    assert(bar->b == 2);
-    assert(bar->foo.a == 1);
-
-    assert((void *)foo != (void *)bar);
 
     delete memory;
 }

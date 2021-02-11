@@ -21,10 +21,10 @@ target_compile_definitions(${PROJECT_NAME}_lib PUBLIC
 )
 
 set_target_properties(${PROJECT_NAME}_lib
-    PROPERTIES CXX_STANDARD 14)
+    PROPERTIES CXX_STANDARD 17)
 
 set_target_properties(${PROJECT_NAME}_test
-    PROPERTIES CXX_STANDARD 14)
+    PROPERTIES CXX_STANDARD 17)
 
 target_link_libraries(${PROJECT_NAME}_test
     ${PROJECT_NAME}_lib
