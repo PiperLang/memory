@@ -6,24 +6,15 @@
 #define IN_USE (1 << 0)
 
 namespace piper {
+    #ifndef PIPER_MEMORY_H
+    #define PIPER_MEMORY_H
     struct block_header {
         size_t size;
         uint8_t flags;
     };
 
-    size_t next_power_of_two(size_t n) {
-        size_t p = 1;
-
-        if (n && !(n & (n - 1))) {
-            return n;
-        }
-
-        while (p < n) {
-            p <<= 1;
-        }
-
-        return p;
-    }
+    size_t next_power_of_two(size_t n);
+    #endif
 
     template<class T> class Memory {
         public:
